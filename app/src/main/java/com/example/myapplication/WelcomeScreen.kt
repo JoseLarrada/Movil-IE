@@ -74,7 +74,9 @@ fun TwoButtonsExample(navController: NavHostController) {
     var activeButton by remember { mutableStateOf("right") }
 
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 50.dp), // 🔼 Subimos los botones un poco
         contentAlignment = Alignment.BottomCenter
     ) {
         Row(
@@ -88,7 +90,7 @@ fun TwoButtonsExample(navController: NavHostController) {
                     activeButton = "left"
                     navController.navigate("signIn") // 🚀 Navega a la pantalla de inicio de sesión
                 },
-                roundedCorner = RoundedCornerShape(topEnd = 20.dp)
+                roundedCorner = RoundedCornerShape(20.dp)
             )
             CustomButton(
                 text = "Registrarse",
@@ -97,11 +99,12 @@ fun TwoButtonsExample(navController: NavHostController) {
                     activeButton = "right"
                     navController.navigate("signUp") // 🚀 Navega a la pantalla de registro
                 },
-                roundedCorner = RoundedCornerShape(topStart = 20.dp)
+                roundedCorner = RoundedCornerShape(20.dp)
             )
         }
     }
 }
+
 
 
 @Composable
